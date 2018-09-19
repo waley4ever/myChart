@@ -9,7 +9,7 @@ var main = function(){
 	var data1 = [0.75, 0.74, 0.95];
 	DonutChart(data1,draw2, 100, 100, 50);
 	var draw3 = SVG('drawing3').size("100%", "100%");
-	var data3= [{start:"UVI",end:"",percentage:0.2, value:3.6},{start:"52",end:"89",percentage:0.2, value:"68"},{start:"",end:"",percentage: "", value:"4 Minutes"},{start:"AQI",end:"",percentage:0.3, value:32}];
+	var data3= [{start:"UVI",end:"",percentage:0.2, value:3.6},{start:"52",end:"89",percentage:0.2, value:"75"},{start:"",end:"",percentage: "", value:"4 Minutes"},{start:"AQI",end:"",percentage:0.3, value:32}];
 	
 	Clock(data3,draw3);
 	//var nested = draw3.nested();
@@ -127,7 +127,7 @@ var Clock = function(data,draw){
 	var now = new Date();
 	pointerSecond.animate(1).rotate(6 * now.getSeconds(), cX, cY);
 	pointerMinute.animate(1).rotate(6 * now.getMinutes(), cX, cY);
-	pointerHour.animate(1).rotate(360/12 * (now.getHours() % 12), cX, cY);
+	pointerHour.animate(1).rotate(360/12 * (now.getHours() % 12) + now.getMinutes()/60*30, cX, cY);
 	
 	counterSecond = now.getSeconds();
 	setInterval(function(){
